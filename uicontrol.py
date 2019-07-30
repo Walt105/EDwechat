@@ -15,7 +15,7 @@ import itchat
 import time
 
 
-class Thread(QThread):
+class Thread_login(QThread):
     sinOut = pyqtSignal(str)
 
     def __init__(self):
@@ -49,7 +49,7 @@ class MainWindow(QWidget, Ui_mainform):
         self.pushButton_NewMessage.clicked.connect(self.on_pB_NewMessage_clicked)
         self.pushButton_LoginWechat.clicked.connect(self.on_pB_LoginWechat_clicked)
         self.pushButton_DeleteMessage.clicked.connect(self.on_pB_DeleteMessage_clicked)
-        self.thread = Thread()
+        self.thread = Thread_login()
         self.thread.sinOut.connect(self.login)
 
     def on_pB_NewMessage_clicked(self):
@@ -73,6 +73,9 @@ class MainWindow(QWidget, Ui_mainform):
             self.qrUI.close()
             self.thread.loginflag = True
             self.thread.quit()
+            self.pushButton_LoginWechat.setText('切换用户')
+            username = self.newChat.init_username()
+            self.label_username.setText(username)
             return
         elif file_inf == '201':
             self.qrUI.label_Qrstatus.setText('请在手机微信中确认登陆')

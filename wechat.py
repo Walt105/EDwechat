@@ -36,18 +36,16 @@ class WeChat:
     def run(self):
         userInfo = itchat.web_init()
         itchat.show_mobile_login()
-
         itchat.get_contact(True)
 
         print('Login successfully as %s' % userInfo['User']['NickName'])
 
 
-    def init_data(self):
+    def init_username(self):
         """ 初始化微信所需数据 """
-        print('登录成功')
-        dic = itchat.web_init
+        dic = itchat.web_init()
         print(dic)
-        return dic
+        return ['User']['NickName']
 
 
     def exit_msg(self):
