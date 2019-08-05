@@ -21,7 +21,7 @@
     <rect>
      <x>60</x>
      <y>540</y>
-     <width>481</width>
+     <width>721</width>
      <height>80</height>
     </rect>
    </property>
@@ -80,46 +80,6 @@
     <string>登录微信</string>
    </property>
   </widget>
-  <widget class="QListWidget" name="listWidget_message">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>180</y>
-     <width>471</width>
-     <height>331</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-  </widget>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
@@ -145,6 +105,71 @@
    <property name="text">
     <string/>
    </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget_MSG">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>160</y>
+     <width>721</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+   <property name="showGrid">
+    <bool>false</bool>
+   </property>
+   <property name="rowCount">
+    <number>0</number>
+   </property>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <attribute name="verticalHeaderHighlightSections">
+    <bool>true</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>消息序号</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>发送时间</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>发送对象</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>重复类型</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>发送内容</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignCenter</set>
+    </property>
+   </column>
   </widget>
  </widget>
  <resources/>

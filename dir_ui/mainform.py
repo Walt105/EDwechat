@@ -2,12 +2,11 @@
 
 # Form implementation generated from reading ui file 'mainform.ui'
 #
-# Created by: PyQt5 UI code generator 5.12.2
+# Created by: PyQt5 UI code generator 5.11.3
 #
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_mainform(object):
     def setupUi(self, mainform):
@@ -15,7 +14,7 @@ class Ui_mainform(object):
         mainform.resize(887, 626)
         mainform.setAutoFillBackground(False)
         self.horizontalLayoutWidget = QtWidgets.QWidget(mainform)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(60, 540, 481, 80))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(60, 540, 721, 80))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -47,21 +46,6 @@ class Ui_mainform(object):
         self.pushButton_LoginWechat = QtWidgets.QPushButton(mainform)
         self.pushButton_LoginWechat.setGeometry(QtCore.QRect(60, 10, 61, 21))
         self.pushButton_LoginWechat.setObjectName("pushButton_LoginWechat")
-        self.listWidget_message = QtWidgets.QListWidget(mainform)
-        self.listWidget_message.setGeometry(QtCore.QRect(70, 180, 471, 331))
-        self.listWidget_message.setObjectName("listWidget_message")
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_message.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_message.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_message.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_message.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_message.addItem(item)
-        item = QtWidgets.QListWidgetItem()
-        self.listWidget_message.addItem(item)
         self.label_2 = QtWidgets.QLabel(mainform)
         self.label_2.setGeometry(QtCore.QRect(60, 50, 76, 31))
         self.label_2.setObjectName("label_2")
@@ -69,6 +53,30 @@ class Ui_mainform(object):
         self.label_username.setGeometry(QtCore.QRect(140, 51, 211, 31))
         self.label_username.setText("")
         self.label_username.setObjectName("label_username")
+        self.tableWidget_MSG = QtWidgets.QTableWidget(mainform)
+        self.tableWidget_MSG.setGeometry(QtCore.QRect(60, 160, 721, 371))
+        self.tableWidget_MSG.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_MSG.setShowGrid(False)
+        self.tableWidget_MSG.setRowCount(10)
+        self.tableWidget_MSG.setObjectName("tableWidget_MSG")
+        self.tableWidget_MSG.setColumnCount(5)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        self.tableWidget_MSG.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        self.tableWidget_MSG.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        self.tableWidget_MSG.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        self.tableWidget_MSG.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
+        self.tableWidget_MSG.setHorizontalHeaderItem(4, item)
+        self.tableWidget_MSG.verticalHeader().setVisible(False)
+        self.tableWidget_MSG.verticalHeader().setHighlightSections(True)
 
         self.retranslateUi(mainform)
         QtCore.QMetaObject.connectSlotsByName(mainform)
@@ -80,21 +88,15 @@ class Ui_mainform(object):
         self.pushButton.setText(_translate("mainform", "预览消息"))
         self.pushButton_DeleteMessage.setText(_translate("mainform", "删除消息"))
         self.pushButton_LoginWechat.setText(_translate("mainform", "登录微信"))
-        __sortingEnabled = self.listWidget_message.isSortingEnabled()
-        self.listWidget_message.setSortingEnabled(False)
-        item = self.listWidget_message.item(0)
-        item.setText(_translate("mainform", "新建项目"))
-        item = self.listWidget_message.item(1)
-        item.setText(_translate("mainform", "新建项目"))
-        item = self.listWidget_message.item(2)
-        item.setText(_translate("mainform", "新建项目"))
-        item = self.listWidget_message.item(3)
-        item.setText(_translate("mainform", "新建项目"))
-        item = self.listWidget_message.item(4)
-        item.setText(_translate("mainform", "新建项目"))
-        item = self.listWidget_message.item(5)
-        item.setText(_translate("mainform", "新建项目"))
-        self.listWidget_message.setSortingEnabled(__sortingEnabled)
         self.label_2.setText(_translate("mainform", "微信用户名:"))
-
+        item = self.tableWidget_MSG.horizontalHeaderItem(0)
+        item.setText(_translate("mainform", "消息序号"))
+        item = self.tableWidget_MSG.horizontalHeaderItem(1)
+        item.setText(_translate("mainform", "发送时间"))
+        item = self.tableWidget_MSG.horizontalHeaderItem(2)
+        item.setText(_translate("mainform", "发送对象"))
+        item = self.tableWidget_MSG.horizontalHeaderItem(3)
+        item.setText(_translate("mainform", "重复类型"))
+        item = self.tableWidget_MSG.horizontalHeaderItem(4)
+        item.setText(_translate("mainform", "发送内容"))
 
