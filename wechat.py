@@ -45,7 +45,7 @@ class WeChat:
         """ 初始化微信所需数据 """
         dic = itchat.web_init()
         print(dic)
-        return ['User']['NickName']
+        return dic['User']['NickName']
 
 
     def exit_msg(self):

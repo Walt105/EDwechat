@@ -3,16 +3,15 @@
 # Date: 2019/7/13
 # Author: walt
 
-from mainform import Ui_mainform
+from dir_ui.mainform import Ui_mainform
 from freemessagebox import Ui_messagebox_free
-from normalmessagebox import Ui_messagebox_normal
-from qrbox import Ui_qrbox
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QDialog
+from dir_ui.normalmessagebox import Ui_messagebox_normal
+from dir_ui.qrbox import Ui_qrbox
+from PyQt5.QtWidgets import QWidget
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtCore import QThread, pyqtSignal, QTime
 from wechat import WeChat
 import itchat
-import time
 
 
 class Thread_login(QThread):
@@ -28,13 +27,15 @@ class Thread_login(QThread):
         while not self.loginflag:
             status = itchat.check_login()
             file_str = status
-            self.sinOut.emit(file_str)
-            self.sleep(3)
+
+            self.sleep(1)
             #登录成功
-            if status == 200:
+            if status == '200':
                 self.loginflag = True
-                break
-        return 0
+                self.sinOut.emit(file_str)
+            else:
+                self.loginflag = False
+                self.sinOut.emit(file_str)
 
 
 class MainWindow(QWidget, Ui_mainform):
@@ -44,16 +45,20 @@ class MainWindow(QWidget, Ui_mainform):
         self.timer = QTime()
         self.newChat = WeChat()
         self.qrUI = QrWindow()
-        self.msgUI = FreeMsgWindow()
+        self.freemsgUI = FreeMsgWindow()
         self.normalUI = NormalMsgWindow()
         self.pushButton_NewMessage.clicked.connect(self.on_pB_NewMessage_clicked)
         self.pushButton_LoginWechat.clicked.connect(self.on_pB_LoginWechat_clicked)
         self.pushButton_DeleteMessage.clicked.connect(self.on_pB_DeleteMessage_clicked)
         self.thread = Thread_login()
         self.thread.sinOut.connect(self.login)
+        self.init_MsgTable()
+
+    def init_MsgTable(self):
+        self.tableWidget_MSG.setColumnWidth(5, 200)
 
     def on_pB_NewMessage_clicked(self):
-        self.msgUI.show()
+        self.freemsgUI.show()
 
     def on_pB_DeleteMessage_clicked(self):
         self.normalUI.show()
@@ -71,12 +76,11 @@ class MainWindow(QWidget, Ui_mainform):
             self.qrUI.label_Qrstatus.setText('登陆成功')
             self.newChat.run()
             self.qrUI.close()
-            self.thread.loginflag = True
             self.thread.quit()
             self.pushButton_LoginWechat.setText('切换用户')
             username = self.newChat.init_username()
             self.label_username.setText(username)
-            return
+
         elif file_inf == '201':
             self.qrUI.label_Qrstatus.setText('请在手机微信中确认登陆')
         elif file_inf == '408':
